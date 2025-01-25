@@ -28,13 +28,30 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .mermaid {
-            width: 1800px; /* Make the flowchart wider */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1800px; /* Wider flowchart */
             height: auto;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: underline;
         }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Mermaid
             mermaid.initialize({ startOnLoad: true, theme: "dark" });
+
+            // Modify links to open in a new tab after the chart is rendered
+            setTimeout(() => {
+                const links = document.querySelectorAll("a");
+                links.forEach(link => {
+                    link.setAttribute("target", "_blank");
+                    link.setAttribute("rel", "noopener noreferrer");
+                });
+            }, 500); // Small delay to ensure Mermaid has rendered the chart
         });
     </script>
 </head>
@@ -43,7 +60,7 @@
         <div class="mermaid">
             flowchart TD
             Start[Start] --> Choice{Choose approach}
-            Choice -->|Find Trending Saas To Improve| Research[Check trending products on - <a href="https://appsumo.com">Appsumo.com</a>, <a href="https://producthunt.com">Producthunt.com</a> and <a href="https://www.saashub.com/">SaasHub.com</a>]
+            Choice -->|Find Trending Saas To Improve| Research[Check trending products on - <a href="https://appsumo.com">Appsumo.com</a>, <a href="https://producthunt.com">Producthunt.com</a>, and <a href="https://www.saashub.com/">SaasHub.com</a>]
             Choice -->|Solve problem| Exp{Do you have industry experience or are highly skilled in something?}
             
             Research --> Select[Select 1 trending product to analyze]
