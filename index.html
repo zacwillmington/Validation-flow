@@ -2,78 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SaaS Validation Flowchart</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js"></script>
     <style>
         body {
             background-color: #121212;
-            color: #e0e0e0;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
         .mermaid {
             background-color: #1e1e1e;
+            border-radius: 12px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            mermaid.initialize({ startOnLoad: true, theme: "dark" });
+        });
+    </script>
 </head>
 <body>
     <div class="mermaid">
         flowchart TD
-    Start[Start] --> Choice{Choose approach}
-    Choice -->|Find Trending Saas To Improve| Research[Check trending products on - <a href="https://appsumo.com">Appsumo.com</a>, <a href="https://producthunt.com">Producthunt.com</a> and <a href="https://www.saashub.com/">SaasHub.com</a>]
-    Choice -->|Solve problem| Exp{Do you have industry experience or are highly skilled in something?}
-    
-    Research --> Select[Select 1 trending product to analyze]
-    Select --> MarketGrowth{<a href="https://trends.google.com/trends/explore">Google Trends</a> Shows Growth?}
-    
-    MarketGrowth -->|Yes| Analysis[Analyze <a href="https://g2.com">G2.com</a>: 
-    1. Revenue model
-    2. Feature gaps
-    3. User complaints]
-    MarketGrowth -->|No or Declining| Restart[Restart product selection]
-    
-    Restart --> Research
-    
-    Exp -->|Yes| Problem{Can you identify specific problems?}
-    Exp -->|No| Research
-    
-    Analysis --> Problem
-    
-    Problem -->|Yes| Value{Is it a high-value problem?}
-    Problem -->|No| Research
-    
-    Value -->|Yes| Competition{Is there competition?}
-    Value -->|No| Research
-    
-    Competition -->|Yes| Diff{Can you differentiate? 
-    If You're not sure how to differentiate -> <a href="https://docs.google.com/document/d/1oUMHDsHLCSV8vB5jBrg48kJ3m970HgJn7OPCtTsRtIs/edit?tab=t.e69boy6eggdp">Click here</a>}
-    Competition -->|No| TAMValidate[Validate if problem too niche - <a href="https://docs.google.com/document/d/1oUMHDsHLCSV8vB5jBrg48kJ3m970HgJn7OPCtTsRtIs/edit?usp=sharing">Calculate TAM</a>]
-    
-    TAMValidate -->|Good niche| MVP[Build MVP]
-    TAMValidate -->|Too niche - find a new problem| Problem
-    
-    Diff -->|Yes| MVP
-    Diff -->|No| Problem
-    
-    MVP --> Test[Test with users]
-    Test --> PMF{Product-Market Fit?}
-    
-    PMF -->|Yes| Launch[Launch & Scale]
-    PMF -->|No| Iterate[Iterate MVP]
-    Iterate --> Test3
+        Start[Start] --> Choice{Choose approach}
+        Choice -->|Find Trending Saas To Improve| Research[Check trending products on - <a href="https://appsumo.com">Appsumo.com</a>, <a href="https://producthunt.com">Producthunt.com</a> and <a href="https://www.saashub.com/">SaasHub.com</a>]
+        Choice -->|Solve problem| Exp{Do you have industry experience or are highly skilled in something?}
+        
+        Research --> Select[Select 1 trending product to analyze]
+        Select --> MarketGrowth{<a href="https://trends.google.com/trends/explore">Google Trends</a> Shows Growth?}
+        
+        MarketGrowth -->|Yes| Analysis[Analyze <a href="https://g2.com">G2.com</a>: 
+        1. Revenue model
+        2. Feature gaps
+        3. User complaints]
+        MarketGrowth -->|No or Declining| Restart[Restart product selection]
+        
+        Restart --> Research
+        
+        Exp -->|Yes| Problem{Can you identify specific problems?}
+        Exp -->|No| Research
+        
+        Analysis --> Problem
+        
+        Problem -->|Yes| Value{Is it a high-value problem?}
+        Problem -->|No| Research
+        
+        Value -->|Yes| Competition{Is there competition?}
+        Value -->|No| Research
+        
+        Competition -->|Yes| Diff{Can you differentiate? 
+        If You're not sure how to differentiate -> <a href="https://docs.google.com/document/d/1oUMHDsHLCSV8vB5jBrg48kJ3m970HgJn7OPCtTsRtIs/edit?tab=t.e69boy6eggdp">Click here</a>}
+        Competition -->|No| TAMValidate[Validate if problem too niche - <a href="https://docs.google.com/document/d/1oUMHDsHLCSV8vB5jBrg48kJ3m970HgJn7OPCtTsRtIs/edit?usp=sharing">Calculate TAM</a>]
+        
+        TAMValidate -->|Good niche| MVP[Build MVP]
+        TAMValidate -->|Too niche - find a new problem| Problem
+        
+        Diff -->|Yes| MVP
+        Diff -->|No| Problem
+        
+        MVP --> Test[Test with users]
+        Test --> PMF{Product-Market Fit?}
+        
+        PMF -->|Yes| Launch[Launch & Scale]
+        PMF -->|No| Iterate[Iterate MVP]
+        Iterate --> Test3
     </div>
-    <script>
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'dark'
-        });
-    </script>
 </body>
 </html>
