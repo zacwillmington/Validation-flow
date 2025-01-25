@@ -3,47 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Idea Generation Flowchart</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <style>
-        .mermaid {
-            margin: auto;
-            max-width: 80%;
-        }
-    </style>
+    <title>SaaS Ideation Flowchart</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
 </head>
 <body>
-    <h1>SaaS Idea Generation Flowchart</h1>
     <div class="mermaid">
-        graph TD
-            A[<a href='https://kaimira.io' target='_blank'>Start with your niche or interests</a>] --> B{Do you know your target audience?}
-            B -->|Yes| C[<a href='https://kaimira.io' target='_blank'>Identify their pain points</a>]
-            B -->|No| D[<a href='https://example.com/research' target='_blank'>Research potential audiences</a>]
-            D --> B
-            C --> E{Do you have a skillset to address this problem?}
-            E -->|Yes| F[<a href='https://example.com/features' target='_blank'>Brainstorm features that solve the problem</a>]
-            E -->|No| G[<a href='https://example.com/partner' target='_blank'>Partner with someone who has the skillset or use no-code tools</a>]
-            G --> F
-            F --> H{Is the solution unique or better than existing solutions?}
-            H -->|Yes| I[<a href='https://example.com/validate' target='_blank'>Validate your idea with surveys or interviews</a>]
-            H -->|No| J[<a href='https://example.com/refine' target='_blank'>Refine or pivot your solution</a>]
-            J --> F
-            I --> K{Can you build an MVP quickly?}
-            K -->|Yes| L[<a href='https://example.com/mvp' target='_blank'>Create an MVP and launch</a>]
-            K -->|No| M[<a href='https://example.com/scope' target='_blank'>Break down the MVP scope or use faster tools</a>]
-            M --> K
-            L --> N[<a href='https://example.com/feedback' target='_blank'>Iterate based on feedback</a>]
+    flowchart TD
+    Start[Start] --> Choice{Choose approach}
+    Choice -->|Find trending products| Research[Check trending products on MicroAcquire/IndieHackers]
+    Choice -->|Solve known problem| Exp{Do you have industry experience?}
+    
+    Research --> Select[Select 3 trending products to analyze]
+    Select --> MarketGrowth[Validate market growth:
+    1. Check Google Trends
+    2. Review job postings
+    3. Monitor VC investments]
+    MarketGrowth --> Analysis[Analyze: 
+    1. Revenue model
+    2. Feature gaps
+    3. User complaints]
+    Analysis --> Validate[Interview 5+ users of similar products about pain points]
+    
+    Exp -->|Yes| Problem{Can you identify specific problems?}
+    Exp -->|No| Research
+    
+    Validate --> Problem
+    
+    Problem -->|Yes| Value{Is it a high-value problem?}
+    Problem -->|No| Research
+    
+    Value -->|Yes| Competition{Is there competition?}
+    Value -->|No| Research
+    
+    Competition -->|Yes| Diff{Can you differentiate?}
+    Competition -->|No| Validate[Validate if problem too niche]
+    
+    Validate -->|Good niche| MVP[Build MVP]
+    Validate -->|Too niche| Problem
+    
+    Diff -->|Yes| MVP
+    Diff -->|No| Problem
+    
+    MVP --> Test[Test with users]
+    Test --> PMF{Product-Market Fit?}
+    
+    PMF -->|Yes| Launch[Launch & Scale]
+    PMF -->|No| Iterate[Iterate MVP]
+    Iterate --> Test
     </div>
-
-    <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: "default",
-            flowchart: {
-                htmlLabels: true,
-                useMaxWidth: true
-            }
-        });
-    </script>
 </body>
 </html>
